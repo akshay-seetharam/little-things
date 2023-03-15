@@ -1,7 +1,7 @@
 import numpy as np
 from matplotlib import pyplot as plt
 
-def drop_line(grid_size=100):
+def drop_line(grid_size=1000000):
     endpoint = (np.random.random() * grid_size, np.random.random() * grid_size)
     theta = np.random.random() * 2 * np.pi
     other_endpoint = (endpoint[0] + np.cos(theta), endpoint[1] + np.sin(theta))
@@ -21,6 +21,7 @@ def main():
     plt.axhline(2 / np.pi, c='RED')
     plt.show()
     print(rts)
+    print(2 / rts[-1])
 
 if __name__ == '__main__':
     main()
