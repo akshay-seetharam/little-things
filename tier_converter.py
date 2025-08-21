@@ -6,17 +6,17 @@ class TierList:
             print(f'{val}: {tierdict[i]}')
 
     def merge(tierlists):
-         items = list(tierlists.values())
+         items = list(tierlists[0].values())
          tiers = {}
          for i in items:
-            tiers_i = find(tierlists, i)
-            avg_tier = average_tier(tiers_i)
+            tiers_i = TierList.find(tierlists, i)
+            avg_tier = TierList.average_tier(tiers_i)
             tiers[avg_tier] = i if avg_tier not in tiers else tiers[avg_tier].append(i)
          return tiers
 
     def average_tier(tiers_i):
         numified = [ord(_) for _ in tiers_i]
-        minimum = min(numified)
+        minimum = min(numified) if numified is not [] else return 5
         j = 0
         while j < len(tiers_i):
             numified[j] = numified[j] - minimum
